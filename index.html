@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Pixel Art: Guía Indie de Géneros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'VT323', monospace;
+            background-color: #073B4C; /* Midnight Blue from Energetic & Playful */
+            color: #F0F0F0; /* Light off-white for text */
+        }
+        .pixel-border {
+            border: 4px solid #073B4C; /* Midnight Blue */
+        }
+        .pixel-border-light {
+            border: 4px solid #118AB2; /* Cerulean Blue */
+        }
+        .pixel-shadow {
+            box-shadow: 8px 8px 0px #073B4C;
+        }
+        .pixel-text-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border: 2px solid #118AB2;
+        }
+        h1, h2, h3 {
+            color: #FFD166; /* Sunny Yellow */
+            text-shadow: 2px 2px 0px #073B4C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 10px;
+            border: 2px solid #118AB2;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #073B4C; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFD166;
+            border: 2px solid #073B4C;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFB700;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 2px solid #118AB2; /* Cerulean Blue */
+        }
+        th, td {
+            border: 2px solid #118AB2; /* Cerulean Blue */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #118AB2; /* Cerulean Blue */
+            color: #FFD166; /* Sunny Yellow */
+        }
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+             color: #F0F0F0;
+        }
+    </style>
+</head>
+<body class="text-2xl leading-relaxed">
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4">🎮 Guía Pixel Indie 🎮</h1>
+            <p class="text-3xl md:text-4xl text-[#06D6A0]">Tu Aventura Estratégica en Géneros de Videojuegos</p>
+        </header>
+
+        <section id="seccion1" class="mb-16 p-6 bg-[#118AB2] pixel-border pixel-shadow">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">💡 La Elección del Género: ¡Tu Decisión Clave! 💡</h2>
+            <p class="mb-6 text-2xl md:text-3xl">Seleccionar el género adecuado es como elegir tu personaje inicial: ¡una decisión CRUCIAL para el éxito de tu videojuego indie! Esta elección define todo el camino de tu desarrollo.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-2xl md:text-3xl">
+                <div class="pixel-text-box">▶️ <strong class="text-[#FF6B6B]">Expectativas del Jugador:</strong> ¿Qué tipo de aventura esperan tus jugadores? [1, 2]</div>
+                <div class="pixel-text-box">🛠️ <strong class="text-[#FF6B6B]">Alcance del Desarrollo:</strong> ¿Cuántos niveles y misiones necesitas crear? [3]</div>
+                <div class="pixel-text-box">💰 <strong class="text-[#FF6B6B]">Asignación de Recursos:</strong> ¿Tu cofre de oro (presupuesto) es suficiente? [3, 4]</div>
+                <div class="pixel-text-box">✨ <strong class="text-[#FF6B6B]">Potencial de Innovación:</strong> ¿Puedes añadir un giro único a un mundo conocido? [1, 2]</div>
+            </div>
+        </section>
+
+        <section id="seccion2" class="mb-16 p-6 bg-[#118AB2] pixel-border pixel-shadow">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">📊 Panorama de Géneros: Popularidad y Demanda (2024-2025) 📊</h2>
+            <p class="mb-8 text-2xl md:text-3xl">Antes de lanzarte a la aventura, es vital conocer el terreno. Algunos caminos están más transitados que otros, y ciertos tesoros (ingresos) se encuentran en géneros específicos.</p>
+
+            <div class="mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">🌍 Jugadores Globales por Tipo de Aventura (Estimado)</h3>
+                <p class="mb-4 text-2xl">Millones de aventureros exploran estos mundos digitales. ¡Mira dónde se congregan las mayores multitudes!</p>
+                <div class="chart-container mx-auto">
+                    <canvas id="jugadoresGlobalesChart"></canvas>
+                </div>
+                <p class="mt-4 text-xl text-center">Datos basados en estimaciones de jugadores activos. [5, 6]</p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">💰 Cofres de Tesoro: Ingresos por Género y Plataforma (2023)</h3>
+                <p class="mb-4 text-2xl">No todos los géneros llenan los cofres por igual. ¡Descubre dónde está el oro!</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2 text-center text-[#06D6A0]">💻 PC Masters</h4>
+                        <div class="chart-container mx-auto h-[250px] md:h-[300px]">
+                            <canvas id="ingresosPCChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2 text-center text-[#06D6A0]">🎮 Console Kings</h4>
+                        <div class="chart-container mx-auto h-[250px] md:h-[300px]">
+                            <canvas id="ingresosConsolaChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2 text-center text-[#06D6A0]">📱 Mobile Moguls</h4>
+                        <div class="chart-container mx-auto h-[250px] md:h-[300px]">
+                            <canvas id="ingresosMovilChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <p class="mt-4 text-xl text-center">Los porcentajes indican la participación en los ingresos de la plataforma. [7]</p>
+            </div>
+
+            <div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">🎯 Motivaciones Clave del Jugador: ¿Qué Buscan los Héroes?</h3>
+                <p class="mb-4 text-2xl">Entender por qué juegan es como tener un mapa del tesoro para sus corazones (y carteras).</p>
+                <ul class="list-none space-y-3 text-2xl md:text-3xl">
+                    <li class="pixel-text-box">🧘 <strong class="text-[#FF6B6B]">Relajarse/Desconectar:</strong> 66% buscan un oasis digital. [8]</li>
+                    <li class="pixel-text-box">🚀 <strong class="text-[#FF6B6B]">Entretenimiento/Escape:</strong> 51% quieren huir a mundos fantásticos. [8]</li>
+                    <li class="pixel-text-box">🧠 <strong class="text-[#FF6B6B]">Desafío Lógico:</strong> 37% disfrutan de un buen rompecabezas mental. [8]</li>
+                </ul>
+                <div class="mt-6 pixel-text-box text-2xl md:text-3xl">
+                    <p><strong class="text-[#FF6B6B]">⚔️ Diferencias por Género (Rol):</strong></p>
+                    <p>🚺 <strong class="text-[#FFD166]">Aventureras:</strong> Aman la personalización, lo creativo y social. Prefieren juegos menos intensivos. [9]</p>
+                    <p>🚹 <strong class="text-[#FFD166]">Exploradores:</strong> Buscan gratificación en la acción, desafío cognitivo y competencia. [9]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion3" class="mb-16 p-6 bg-[#118AB2] pixel-border pixel-shadow">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">🚧 El Desafío Indie: Saturación y Visibilidad 🚧</h2>
+            <p class="mb-8 text-2xl md:text-3xl">El reino indie está en auge, ¡pero eso significa más dragones (competencia) que enfrentar para que tu juego brille!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-center text-2xl md:text-3xl">
+                <div class="pixel-text-box">
+                    <p class="text-5xl text-[#FF6B6B]">📈</p>
+                    <p><strong class="text-[#FFD166]">USD 5.42 Mil Millones</strong></p>
+                    <p>Mercado Indie en 2025 [10]</p>
+                </div>
+                <div class="pixel-text-box">
+                     <p class="text-5xl text-[#FF6B6B]">✨</p>
+                    <p><strong class="text-[#FFD166]">16,000+ Juegos</strong></p>
+                    <p>Lanzados en 2024 [11]</p>
+                </div>
+            </div>
+            <p class="pixel-text-box text-center text-2xl md:text-3xl mb-8"><strong class="text-[#FF6B6B]">Dura Realidad:</strong> El 10% de los títulos capturan la mayoría de los ingresos. ¡Destacar es un desafío épico! [12, 13]</p>
+
+            <div class="mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">🌋 Saturación por Plataforma: ¿Dónde Hay Espacio para tu Estandarte?</h3>
+                <p class="mb-4 text-2xl">Algunos reinos están más poblados que otros. Elegir sabiamente tu primer puesto de avanzada es crucial.</p>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Plataforma</th>
+                                <th>Nuevos Juegos/Mes</th>
+                                <th>Visibilidad Indie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Steam</td><td>1,200+</td><td class="text-[#FF6B6B]">Desafiante</td></tr>
+                            <tr><td>Nintendo Switch</td><td>120+</td><td class="text-[#FFD166]">Moderada</td></tr>
+                            <tr><td>PlayStation</td><td>60+</td><td class="text-[#06D6A0]">Buena</td></tr>
+                            <tr><td>Xbox</td><td>70+</td><td class="text-[#06D6A0]">Buena</td></tr>
+                            <tr><td>iOS App Store</td><td>1,500+</td><td class="text-[#FF6B6B]">Muy Difícil</td></tr>
+                            <tr><td>Google Play</td><td>2,000+</td><td class="text-[#FF6B6B]">Muy Difícil</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4 text-xl text-center">La visibilidad puede ser un monstruo difícil de vencer. [14]</p>
+            </div>
+
+            <div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">🛡️ Géneros Comúnmente Sobresaturados para Indies</h3>
+                <p class="mb-4 text-2xl">Cuidado, ¡estos caminos están llenos de aventureros con ideas similares! Se perciben como "más fáciles" de forjar con pocos recursos. [16]</p>
+                <ul class="list-none space-y-3 text-2xl md:text-3xl">
+                    <li class="pixel-text-box">🏃 <strong class="text-[#FF6B6B]">Plataformers</strong> (especialmente puzzle-platformers) [15, 16]</li>
+                    <li class="pixel-text-box">🎲 <strong class="text-[#FF6B6B]">Roguelikes</strong> (especialmente deckbuilders) [15, 16]</li>
+                    <li class="pixel-text-box">🗺️ <strong class="text-[#FF6B6B]">Metroidvanias</strong> [15, 16]</li>
+                    <li class="pixel-text-box">📖 <strong class="text-[#FF6B6B]">Visual Novels, FPS</strong> [15]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="seccion4" class="mb-16 p-6 bg-[#118AB2] pixel-border pixel-shadow">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">✨ Oportunidades Estratégicas: ¡Mapas Secretos al Éxito! ✨</h2>
+            <p class="mb-8 text-2xl md:text-3xl">Incluso en los mundos más explorados, hay tesoros ocultos y caminos menos transitados que llevan a la gloria.</p>
+
+            <div class="mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">🏞️ Nichos Subatendidos con Alta Demanda: ¡Tierras Vírgenes!</h3>
+                <p class="mb-4 text-2xl">Estos géneros tienen sed de nuevas aventuras y menos competencia directa. ¡Explora lo inexplorado!</p>
+                <ul class="list-none space-y-3 text-2xl md:text-3xl">
+                    <li class="pixel-text-box">🌍 <strong class="text-[#06D6A0]">4X</strong> (eXplorar, eXpandir, eXplotar, eXterminar) [15]</li>
+                    <li class="pixel-text-box">🏙️ <strong class="text-[#06D6A0]">City Builder</strong> (Constructores de Ciudades) [15]</li>
+                    <li class="pixel-text-box">🃏 <strong class="text-[#06D6A0]">Roguelike Deckbuilder</strong> (Cartas y Mazmorras) [15]</li>
+                    <li class="pixel-text-box">🏕️ <strong class="text-[#06D6A0]">Open-World Survival Craft</strong> (Mundo Abierto y Supervivencia) [15]</li>
+                </ul>
+                <p class="mt-4 pixel-text-box text-2xl md:text-3xl"><strong class="text-[#FF6B6B]">Estrategia Prohibida (pero efectiva):</strong> "Desnuda" géneros complejos a su esencia para hacerlos viables. Ejemplo: *Stacklands* simplificó un God/Builder a un juego de cartas. ¡Magia! [15]</p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">💡 El Principio "Nuevo, pero Familiar": La Receta del Éxito</h3>
+                 <p class="mb-4 text-2xl">A los jugadores les encanta la emoción de lo nuevo, pero también la comodidad de lo conocido.</p>
+                <p class="pixel-text-box text-2xl md:text-3xl mb-4">Los jugadores prefieren algo <strong class="text-[#06D6A0]">"nuevo, pero familiar"</strong>. [15]</p>
+                <p class="pixel-text-box text-2xl md:text-3xl mb-4"><strong class="text-[#FF6B6B]">Consejo de Sabio:</strong> Innova en 1 o 2 elementos clave de un género establecido. ¡No intentes crear la pólvora si puedes mejorar la antorcha! [15]</p>
+                <p class="pixel-text-box text-2xl md:text-3xl"><strong class="text-[#FFD166]">Ejemplos de Leyenda:</strong> *Hades*, *Cult of the Lamb* (roguelikes con narrativas y giros únicos que encantaron a los bardos). [16]</p>
+            </div>
+
+            <div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-[#FFD166]">💖 La Creciente Demanda de Diseño Inclusivo: ¡Todos son Bienvenidos!</h3>
+                <p class="mb-4 text-2xl">El mundo de los videojuegos es para todos. ¡Abre tus puertas y crea personajes que reflejen la diversidad de tus jugadores!</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="chart-container mx-auto h-[280px] md:h-[320px]">
+                        <canvas id="inclusionChart1"></canvas>
+                        <p class="text-center text-xl mt-2">Demanda de Diversidad [17,1]</p>
+                    </div>
+                    <div class="chart-container mx-auto h-[280px] md:h-[320px]">
+                        <canvas id="inclusionChart2"></canvas>
+                        <p class="text-center text-xl mt-2">Impacto de Estereotipos [17]</p>
+                    </div>
+                </div>
+                <p class="pixel-text-box text-2xl md:text-3xl mb-4"><strong class="text-[#FF6B6B]">La Gran Oportunidad:</strong> Las mujeres son casi el 50% de los jugadores [18], ¡pero solo el 20% de los personajes son femeninos! [18] ¡Hay un tesoro de historias por contar!</p>
+                <p class="pixel-text-box text-2xl md:text-3xl"><strong class="text-[#FFD166]">Héroes y Heroínas de la Inclusión:</strong></p>
+                <ul class="list-disc list-inside ml-4 text-2xl md:text-3xl space-y-1">
+                    <li>Ellie (*The Last of Us Part II*), Aloy (*Horizon Zero Dawn*) [19, 20, 21]</li>
+                    <li>Madeline (*Celeste* - prota trans), *Life is Strange* [19, 22]</li>
+                    <li>Kratos (*God of War* 2018), Arthur Morgan (*RDR2*) desafiando estereotipos. [23]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="seccion5" class="p-6 bg-[#118AB2] pixel-border pixel-shadow">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">✅ Recomendaciones Clave para Indies: ¡Tu Hoja de Ruta! ✅</h2>
+            <p class="mb-8 text-2xl md:text-3xl">¡Equípate con estos consejos y prepárate para la aventura de desarrollar tu juego indie!</p>
+            <ol class="list-none space-y-4 text-2xl md:text-3xl">
+                <li class="pixel-text-box">📜 <strong class="text-[#06D6A0]">1. Investiga a Fondo:</strong> Conoce a tu audiencia y sus motivaciones como un erudito conoce sus pergaminos. [4]</li>
+                <li class="pixel-text-box">🗺️ <strong class="text-[#06D6A0]">2. Elige tu Plataforma Sabiamente:</strong> No todos los reinos ofrecen la misma visibilidad. ¡Prioriza! [14]</li>
+                <li class="pixel-text-box">💎 <strong class="text-[#06D6A0]">3. Diferénciate con Calidad:</strong> Una visión única y pulida es tu mejor arma. No solo lo "fácil". [16]</li>
+                <li class="pixel-text-box">🌈 <strong class="text-[#06D6A0]">4. Prioriza el Diseño Inclusivo:</strong> Atrae a un mercado creciente con personajes y narrativas diversas. [1, 10]</li>
+                <li class="pixel-text-box">🔥 <strong class="text-[#06D6A0]">5. Sigue tu Pasión:</strong> La visión y el amor por tu juego pueden conquistar cualquier mazmorra. [16]</li>
+            </ol>
+        </section>
+
+        <footer class="text-center mt-16 py-8">
+            <p class="text-xl text-[#FFD166]">Infografía creada con ❤️ y pixeles para la comunidad indie.</p>
+            <p class="text-lg text-[#06D6A0]">Basado en "Guía Estratégica para Desarrolladores Indie: Géneros, Mercado y Oportunidades".</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const CHART_COLORS = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            darkBlue: '#073B4C',
+            lightGray: '#F0F0F0'
+        };
+
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: CHART_COLORS.lightGray,
+                        font: {
+                            size: 16,
+                            family: 'VT323'
+                        }
+                    }
+                },
+                tooltip: {
+                    titleFont: { family: 'VT323', size: 18 },
+                    bodyFont: { family: 'VT323', size: 16 },
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: CHART_COLORS.lightGray, font: { size: 14, family: 'VT323' } },
+                    grid: { color: 'rgba(240, 240, 240, 0.2)' }
+                },
+                x: {
+                    ticks: { color: CHART_COLORS.lightGray, font: { size: 14, family: 'VT323' } },
+                    grid: { color: 'rgba(240, 240, 240, 0.2)' }
+                }
+            }
+        };
+        
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) return str;
+            const words = str.split(' ');
+            let currentLine = '';
+            const lines = [];
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            if (currentLine.length > 0) lines.push(currentLine.trim());
+            return lines.length > 0 ? lines : [str]; // Return array even if single line after processing
+        }
+
+
+        new Chart(document.getElementById('jugadoresGlobalesChart'), {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('FPS, Acción-Aventura, RPG', 22), 
+                    wrapLabel('Battle Royale, Deportes, Carreras', 22),
+                    wrapLabel('Simulación, Mundo Abierto, Puzle', 22)
+                ],
+                datasets: [{
+                    label: 'Jugadores Globales (Estimado en Mil Millones)',
+                    data: [1.21, 1.14, 1.00], // Approx avg for last category
+                    backgroundColor: [CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.green],
+                    borderColor: CHART_COLORS.darkBlue,
+                    borderWidth: 2
+                }]
+            },
+            options: commonChartOptions
+        });
+
+        new Chart(document.getElementById('ingresosPCChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Shooter', 'Aventura', 'RPG', 'Battle Royale', 'Estrategia', 'Otros'],
+                datasets: [{
+                    label: 'Ingresos PC (%)',
+                    data: [14.1, 12, 11, 10, 9, 100 - (14.1+12+11+10+9)], // Example data distribution
+                    backgroundColor: [CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.green, CHART_COLORS.blue, '#4ECDC4', CHART_COLORS.darkBlue],
+                }]
+            },
+            options: {...commonChartOptions, cutout: '50%'}
+        });
+
+        new Chart(document.getElementById('ingresosConsolaChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Aventura', 'Battle Royale', 'Deportes', 'Shooter', 'RPG', 'Otros'],
+                datasets: [{
+                    label: 'Ingresos Consola (%)',
+                    data: [17.1, 15, 14, 12, 11, 100-(17.1+15+14+12+11)], // Example data
+                    backgroundColor: [CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.green, CHART_COLORS.blue, '#4ECDC4', CHART_COLORS.darkBlue],
+                }]
+            },
+            options: {...commonChartOptions, cutout: '50%'}
+        });
+        
+        new Chart(document.getElementById('ingresosMovilChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['RPG', 'Puzle', 'Aventura', 'Estrategia', 'Idle', 'Otros'],
+                datasets: [{
+                    label: 'Ingresos Móvil (%)',
+                    data: [23, 20, 15, 12, 10, 100-(23+20+15+12+10)], // Example data
+                    backgroundColor: [CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.green, CHART_COLORS.blue, '#4ECDC4', CHART_COLORS.darkBlue],
+                }]
+            },
+            options: {...commonChartOptions, cutout: '50%'}
+        });
+
+        new Chart(document.getElementById('inclusionChart1'), {
+            type: 'pie',
+            data: {
+                labels: [wrapLabel('Quieren Personajes Diversos', 16), wrapLabel('Más Propensos a Jugar con Mujeres Jugables',16)],
+                datasets: [{
+                    data: [70, 63],
+                    backgroundColor: [CHART_COLORS.green, CHART_COLORS.yellow],
+                    borderColor: CHART_COLORS.darkBlue,
+                    borderWidth: 2
+                }]
+            },
+            options: {...commonChartOptions, plugins: {...commonChartOptions.plugins, legend: {...commonChartOptions.plugins.legend, position: 'bottom'}}}
+        });
+
+        new Chart(document.getElementById('inclusionChart2'), {
+            type: 'pie',
+            data: {
+                labels: [wrapLabel('Menos Propensos a Jugar con Estereotipos de Género',16), wrapLabel('Mujeres Jugadoras',16), wrapLabel('Personajes Femeninos en Juegos',16)],
+                datasets: [{
+                    data: [47, 50, 20],
+                    backgroundColor: [CHART_COLORS.red, CHART_COLORS.blue, CHART_COLORS.lightGray],
+                    borderColor: CHART_COLORS.darkBlue,
+                    borderWidth: 2
+                }]
+            },
+             options: {...commonChartOptions, plugins: {...commonChartOptions.plugins, legend: {...commonChartOptions.plugins.legend, position: 'bottom'}}}
+        });
+
+    </script>
+</body>
+</html>
